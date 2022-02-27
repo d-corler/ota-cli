@@ -1,11 +1,13 @@
 import {Command, Flags} from '@oclif/core'
 import mdns from 'multicast-dns'
-import cli from 'cli-ux'
 import {catchError, defer, lastValueFrom, tap, switchMap, of} from 'rxjs'
 
 import constants from '../../constants'
 
+import {SpinnerHelper, SpinnerStoppingState} from '../../utils/spinner'
+
 import {Scanner} from '../../functions/scanner'
+
 import {NewScanRequired} from '../../errors/scan.errors'
 
 export default class Upload extends Command {
@@ -77,20 +79,20 @@ export default class Upload extends Command {
           switchMap(nestedCache =>
             defer(() => {
             // Start spinner
-              cli.action.start('[\u001B[33mota\u001B[0m] scanning...')
+              SpinnerHelper.start('scanning')
               return (
               // Scan devices
                 Upload.scanner
                 .operate('scan')(nestedCache)
                 .pipe(
                   // Stop spinner
-                  tap(() => cli.action.stop('\u001B[32mdone\u001B[0m')),
+                  tap(() => SpinnerHelper.stop(SpinnerStoppingState.Success)),
                 )
               )
             }).pipe(
               catchError(error => {
               // Stop spinner
-                cli.action.stop('\u001B[31mfailed\u001B[0m')
+                SpinnerHelper.stop(SpinnerStoppingState.Failure)
                 throw error
               }),
             ),
