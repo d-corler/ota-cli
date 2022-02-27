@@ -1,0 +1,80 @@
+{
+  "name": "ota-cli",
+  "version": "0.1.0-pre",
+  "description": "OTA firmware uploader",
+  "author": "Damien CORLER <31737627+d-corler@users.noreply.github.com>",
+  "bin": {
+    "ota": "./bin/run"
+  },
+  "homepage": "https://github.com/d-corler/ota-cli",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "d-corler/ota-cli",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "dependencies": {
+    "@oclif/core": "^1",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^2",
+    "@types/inquirer": "^8.1.3",
+    "@types/multicast-dns": "^7.2.1",
+    "cli-ux": "^6.0.8",
+    "inquirer": "^8.2.0",
+    "multicast-dns": "^7.2.4",
+    "ora": "^6.0.1",
+    "rxjs": "^7.5.2"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2",
+    "@types/chai": "^4",
+    "@types/node": "^16",
+    "eslint": "^7",
+    "eslint-config-oclif": "^4",
+    "eslint-config-oclif-typescript": "^1",
+    "globby": "^13",
+    "oclif": "^2",
+    "shx": "^0.3",
+    "ts-node": "^10",
+    "tslib": "^2",
+    "typescript": "^4"
+  },
+  "oclif": {
+    "bin": "ota",
+    "dirname": "ota",
+    "hooks": {
+      "init": "./src/hooks/init/banner"
+    },
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "bugs": "https://github.com/d-corler/ota-cli/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
+}
