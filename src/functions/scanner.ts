@@ -19,6 +19,7 @@ import {NewScanRequired, ScanUnknownError} from '../errors/scan.errors'
 import constants from '../constants'
 
 import {DeviceNotFoundError} from '../errors/device.error'
+import {InvalidCacheError} from '../errors/cache.error'
 
 import type {Observable} from 'rxjs'
 
@@ -74,7 +75,7 @@ export class Scanner {
     switch (method) {
     case 'scan':
       return cache => {
-        if (!('mdnsClient' in cache)) throw new Error('Cache is not valid')
+        if (!('mdnsClient' in cache)) throw new InvalidCacheError()
         return this.scan(
           cache.mdnsClient,
           cache.flags.dnsServiceName,
@@ -84,7 +85,7 @@ export class Scanner {
 
     case 'select':
       return cache => {
-        if (!('devices' in cache)) throw new Error('Cache is not valid')
+        if (!('devices' in cache)) throw new InvalidCacheError()
         return this.select(cache.devices).pipe(
           map(selectedDevice =>
             Object.assign({}, cache, {selectedDevice}),
