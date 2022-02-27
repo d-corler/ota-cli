@@ -1,7 +1,9 @@
 # ota-cli
 
-[![Version](https://img.shields.io/npm/v/ota-cli.svg)](https://npmjs.org/package/ota-cli)
-[![License](https://img.shields.io/npm/l/ota-cli.svg)](https://github.com/d-corler/ota-cli/blob/main/package.json)
+[![Version](https://img.shields.io/github/package-json/v/d-corler/ota-cli?style=flat-square)](https://github.com/d-corler/ota-cli/blob/main/)
+[![Version](https://img.shields.io/npm/v/ota-cli?style=flat-square)](https://npmjs.org/package/ota-cli)
+[![License](https://img.shields.io/github/license/d-corler/ota-cli?style=flat-square)](https://github.com/d-corler/ota-cli/blob/main/LICENSE)
+[![License](https://img.shields.io/github/issues/d-corler/ota-cli?style=flat-square)](https://github.com/d-corler/ota-cli/issues)
 
 Uploads firmware over the air to devices like Arduino, ESP8266, ESP32, etc.
 
@@ -10,14 +12,16 @@ Authentication supported.
 # Summary
 
 <!-- toc -->
-* [ota-cli](#ota-cli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [ota-cli](#ota-cli)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g ota-cli
 $ ota COMMAND
@@ -29,21 +33,23 @@ USAGE
   $ ota COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`ota hello PERSON`](#ota-hello-person)
-* [`ota hello world`](#ota-hello-world)
-* [`ota help [COMMAND]`](#ota-help-command)
-* [`ota plugins`](#ota-plugins)
-* [`ota plugins:inspect PLUGIN...`](#ota-pluginsinspect-plugin)
-* [`ota plugins:install PLUGIN...`](#ota-pluginsinstall-plugin)
-* [`ota plugins:link PLUGIN`](#ota-pluginslink-plugin)
-* [`ota plugins:uninstall PLUGIN...`](#ota-pluginsuninstall-plugin)
-* [`ota plugins update`](#ota-plugins-update)
-* [`ota upload`](#ota-upload)
+
+- [`ota hello PERSON`](#ota-hello-person)
+- [`ota hello world`](#ota-hello-world)
+- [`ota help [COMMAND]`](#ota-help-command)
+- [`ota plugins`](#ota-plugins)
+- [`ota plugins:inspect PLUGIN...`](#ota-pluginsinspect-plugin)
+- [`ota plugins:install PLUGIN...`](#ota-pluginsinstall-plugin)
+- [`ota plugins:link PLUGIN`](#ota-pluginslink-plugin)
+- [`ota plugins:uninstall PLUGIN...`](#ota-pluginsuninstall-plugin)
+- [`ota plugins update`](#ota-plugins-update)
+- [`ota upload`](#ota-upload)
 
 ## `ota hello PERSON`
 
@@ -178,7 +184,7 @@ ALIASES
   $ ota plugins add
 
 EXAMPLES
-  $ ota plugins:install myplugin 
+  $ ota plugins:install myplugin
 
   $ ota plugins:install https://github.com/someuser/someplugin
 
@@ -273,4 +279,5 @@ DESCRIPTION
 ```
 
 _See code: [dist/commands/upload/index.ts](https://github.com/d-corler/ota-cli/blob/v0.1.0-pre/dist/commands/upload/index.ts)_
+
 <!-- commandsstop -->
