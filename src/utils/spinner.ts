@@ -10,7 +10,7 @@ export class SpinnerHelper {
   /**
    * Start a spinner with a message
    * @param {string} msg Message to show
-   * @returns void
+   * @returns {void}
    */
   public static start(msg: string): void {
     cli.action.start(`[\u001B[33mota\u001B[0m] ${msg}`)
@@ -20,7 +20,7 @@ export class SpinnerHelper {
    * Stop a spinner with an optional message
    * @param {SpinnerStoppingState} state What's the state to use
    * @param {string=} msg Message to show
-   * @returns void
+   * @returns {void}
    */
   public static stop(state: SpinnerStoppingState, msg?: string): void {
     // Check state value, don't trust typing

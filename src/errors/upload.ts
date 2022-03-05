@@ -57,3 +57,9 @@ export class UploadUnknownError extends Error {
     super('Upload unknown error')
   }
 }
+
+export class MustBeValidIpAddress extends Error {
+  constructor() {
+    super('must be a valid IP address')
+  }
+}

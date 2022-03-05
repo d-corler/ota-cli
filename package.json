@@ -17,31 +17,41 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@oclif/core": "^1",
-    "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2",
-    "@types/inquirer": "^8.1.3",
+    "@abraham/reflection": "^0.9.1",
+    "@oclif/core": "^1.5.2",
+    "@oclif/parser": "^3.8.7",
+    "@oclif/plugin-help": "^5.1.11",
+    "@oclif/plugin-plugins": "^2.1.0",
+    "@types/debug": "^4.1.7",
+    "@types/inquirer": "^8.2.0",
     "@types/multicast-dns": "^7.2.1",
-    "cli-ux": "^6.0.8",
+    "@types/validator": "^13.7.1",
+    "cli-ux": "^6.0.9",
+    "debug": "^4.3.3",
     "inquirer": "^8.2.0",
+    "lodash": "^4.17.21",
     "multicast-dns": "^7.2.4",
-    "ora": "^6.0.1",
-    "rxjs": "^7.5.2"
+    "ora": "^6.1.0",
+    "rxjs": "^7.5.4",
+    "tsyringe": "^4.6.0",
+    "validator": "^13.7.0",
+    "zod": "^3.13.4"
   },
   "devDependencies": {
-    "@oclif/test": "^2",
-    "@types/chai": "^4",
-    "@types/node": "^16",
+    "@oclif/test": "^2.1.0",
+    "@types/chai": "^4.3.0",
+    "@types/lodash": "^4.14.179",
+    "@types/node": "^16.11.26",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^7",
-    "eslint-config-oclif": "^4",
-    "eslint-config-oclif-typescript": "^1",
-    "globby": "^11",
-    "oclif": "^2",
-    "shx": "^0.3",
-    "ts-node": "^10",
-    "tslib": "^2",
-    "typescript": "^4"
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^4.0.0",
+    "eslint-config-oclif-typescript": "^1.0.2",
+    "globby": "^11.1.0",
+    "oclif": "^2.5.0",
+    "shx": "^0.3.4",
+    "ts-node": "^10.6.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
   },
   "oclif": {
     "bin": "ota",
@@ -66,7 +76,7 @@
     "version": "oclif readme && git add README.md"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=12.11.0"
   },
   "bugs": "https://github.com/d-corler/ota-cli/issues",
   "keywords": [

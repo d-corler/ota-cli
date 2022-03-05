@@ -1,33 +1,47 @@
-import {Command, Flags} from '@oclif/core'
-import mdns from 'multicast-dns'
-import {catchError, defer, lastValueFrom, tap, switchMap, of} from 'rxjs'
+import {autoInjectable} from '../../utils/di'
+import {Flags, Config} from '@oclif/core'
+import {
+  catchError,
+  defer,
+  lastValueFrom,
+  map,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs'
 
 import constants from '../../constants'
 
+import {CommandFactory} from '../../factories/command'
+
 import {SpinnerHelper, SpinnerStoppingState} from '../../utils/spinner'
 
-import {Scanner} from '../../functions/scanner'
+import {ScannerService} from '../../services/scanner'
+import {UploaderService} from '../../services/uploader'
 
-import {NewScanRequired} from '../../errors/scan.errors'
+import {extractZodErrorMessage} from '../../utils/errors'
 
-export default class Upload extends Command {
+@autoInjectable()
+export default class Upload extends CommandFactory {
   static description = 'Upload a firmware to a device';
 
   static flags = {
+    ...CommandFactory.defaultFlags,
     file: Flags.string({
       char: 'f',
       description: 'Path to the firmware binary file',
       required: true,
       helpValue: 'path/to/firmware.bin',
     }),
-    interface: Flags.string({
+    interfaceIp: Flags.string({
       char: 'i',
       description: 'Provide IP of your default local network interface',
       required: true,
     }),
+    // TODO : to implement
     deviceIp: Flags.string({
       description:
-        'Skip the scanning step by providing the device IP address directly',
+        '(WIP) Skip the scanning step by providing the device IP address directly',
       required: false,
       helpValue: 'path/to/firmware.bin',
     }),
@@ -35,101 +49,95 @@ export default class Upload extends Command {
       description:
         'Skip the authentication step by providing the password directly',
       required: false,
-      dependsOn: ['ip'],
+      // TODO : uncomment when deviceIp implemented
+      // dependsOn: ['ip'],
     }),
     dnsServiceName: Flags.string({
       description: 'Provide the name of the DNS service to lookup',
       required: false,
-      default: constants.SERVICE_TARGET_NAME,
+      default: constants.DEFAULT_SERVICE_TARGET_NAME,
     }),
     dnsServiceType: Flags.string({
       description: 'Provide the type of the DNS service to lookup',
       required: false,
-      default: constants.SERVICE_TARGET_TYPE,
+      default: constants.DEFAULT_SERVICE_TARGET_TYPE,
     }),
   };
 
-  static scanner = new Scanner();
+  constructor(
+    public argv: string[],
+    public config: Config,
+    private _scannerService: ScannerService,
+    private _uploaderService: UploaderService,
+  ) {
+    super(argv, config)
+  }
 
-  async run(): Promise<void> {
+  async run() /* : Promise<void> */ {
     const {flags} = await this.parse(Upload)
 
-    const mdnsClient = mdns({
-      interface: flags.interface,
-    })
-
-    const scanAndSelect = <
-      T extends {
-        flags: {
-          file: string;
-          interface: string;
-          deviceIp: string | undefined;
-          devicePass: string | undefined;
-          dnsServiceName: string;
-          dnsServiceType: string;
-        };
-        mdnsClient: mdns.MulticastDNS;
-      }
-    >(
-        cache: T,
-      ): // TODO fix this typing
-    any =>
-        of(cache).pipe(
-        // Scan for devices
-          switchMap(nestedCache =>
-            defer(() => {
-            // Start spinner
-              SpinnerHelper.start('scanning')
-              return (
-              // Scan devices
-                Upload.scanner
-                .operate('scan')(nestedCache)
-                .pipe(
-                  // Stop spinner
-                  tap(() => SpinnerHelper.stop(SpinnerStoppingState.Success)),
-                )
-              )
-            }).pipe(
-              catchError(error => {
-              // Stop spinner
-                SpinnerHelper.stop(SpinnerStoppingState.Failure)
-                throw error
-              }),
-            ),
-          ),
-          // Select a device
-          switchMap(nestedCache =>
-            Upload.scanner
-            .operate('select')(nestedCache)
-            .pipe(
-              catchError(error => {
-                if (error instanceof NewScanRequired) {
-                  return of(nestedCache).pipe(
-                    switchMap(() => scanAndSelect(cache)),
-                  )
-                }
-
-                throw error
-              }),
-            ),
-          ),
+    return lastValueFrom(
+      defer(() => {
+        const parsedScanArguments = this._scannerService.parseScanArguments(
+          flags.interfaceIp,
+          flags.dnsServiceName,
+          flags.dnsServiceType,
         )
 
-    return lastValueFrom(
-      of({
-        flags,
-        mdnsClient,
+        // Start spinner
+        SpinnerHelper.start('scanning')
+        return this._scannerService
+        .scan(
+          parsedScanArguments.interfaceIp,
+          parsedScanArguments.dnsServiceName,
+          parsedScanArguments.dnsServiceType,
+        )
+        .pipe(take(1))
       }).pipe(
-        // Scan devices and select one
-        switchMap(scanAndSelect),
+        // Stop spinner
+        tap(() => SpinnerHelper.stop(SpinnerStoppingState.Success)),
+        // Select the device
+        switchMap(output => this._scannerService.select(output.result)),
+        // Select the device port
+        switchMap(output =>
+          this._scannerService
+          .selectPort(output)
+          // Merge port with the device output
+          .pipe(map(port => ({...output, port}))),
+        ),
+        // Upload file
+        switchMap(device =>
+          defer(() => {
+            const parsedUploadArguments =
+              this._uploaderService.parseUploadArguments(
+                flags.file,
+                device.ip,
+                device.port,
+                flags.devicePass,
+              )
 
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        switchMap(() => of(undefined)),
-
-        tap(() => {
-          this.exit()
+            // Start spinner
+            SpinnerHelper.start('uploading')
+            return this._uploaderService.upload(
+              parsedUploadArguments.binaryFilePath,
+              parsedUploadArguments.deviceIp,
+              parsedUploadArguments.devicePort,
+              parsedUploadArguments.password,
+            )
+          }),
+        ),
+        // Catch errors and display them
+        catchError(error => {
+          this.error(extractZodErrorMessage(error))
         }),
       ),
     )
+    .then(() => {
+      this.exit(0)
+    })
+    .catch(error => {
+      SpinnerHelper.stop(SpinnerStoppingState.Failure)
+      this.error(error)
+    })
   }
 }

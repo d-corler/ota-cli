@@ -1,11 +1,17 @@
 export class ScanUnknownError extends Error {
   constructor() {
-    super('Unknown error while scanning for devices')
+    super('unknown error while scanning for devices')
   }
 }
 
 export class NewScanRequired extends Error {
   constructor() {
-    super('A new scan is required')
+    super('a new scan is required')
+  }
+}
+
+export class DnsRecordTypeNotFound extends Error {
+  constructor() {
+    super('DNS record type not found')
   }
 }

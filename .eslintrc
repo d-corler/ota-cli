@@ -1,6 +1,9 @@
 {
-  "extends": [
-    "oclif",
-    "oclif-typescript"
-  ]
+  "extends": ["oclif", "oclif-typescript"],
+  "rules": {
+    // We aren't a library, we're a command line tool
+    "unicorn/prefer-module": "off",
+    // We want to be compatible with older versions of node
+    "unicorn/prefer-node-protocol": "off"
+  }
 }
