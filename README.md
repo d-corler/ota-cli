@@ -12,16 +12,15 @@ Authentication supported.
 # Summary
 
 <!-- toc -->
-
-- [ota-cli](#ota-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [ota-cli](#ota-cli)
+* [Summary](#summary)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g ota-cli
 $ ota COMMAND
@@ -33,63 +32,19 @@ USAGE
   $ ota COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`ota hello PERSON`](#ota-hello-person)
-- [`ota hello world`](#ota-hello-world)
-- [`ota help [COMMAND]`](#ota-help-command)
-- [`ota plugins`](#ota-plugins)
-- [`ota plugins:inspect PLUGIN...`](#ota-pluginsinspect-plugin)
-- [`ota plugins:install PLUGIN...`](#ota-pluginsinstall-plugin)
-- [`ota plugins:link PLUGIN`](#ota-pluginslink-plugin)
-- [`ota plugins:uninstall PLUGIN...`](#ota-pluginsuninstall-plugin)
-- [`ota plugins update`](#ota-plugins-update)
-- [`ota upload`](#ota-upload)
-
-## `ota hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ ota hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/d-corler/ota-cli/blob/v0.1.0-pre/dist/commands/hello/index.ts)_
-
-## `ota hello world`
-
-Say hello world
-
-```
-USAGE
-  $ ota hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+* [`ota help [COMMAND]`](#ota-help-command)
+* [`ota plugins`](#ota-plugins)
+* [`ota plugins:inspect PLUGIN...`](#ota-pluginsinspect-plugin)
+* [`ota plugins:install PLUGIN...`](#ota-pluginsinstall-plugin)
+* [`ota plugins:link PLUGIN`](#ota-pluginslink-plugin)
+* [`ota plugins:uninstall PLUGIN...`](#ota-pluginsuninstall-plugin)
+* [`ota plugins:update`](#ota-pluginsupdate)
+* [`ota upload`](#ota-upload)
 
 ## `ota help [COMMAND]`
 
@@ -109,7 +64,7 @@ DESCRIPTION
   Display help for ota.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.11/src/commands/help.ts)_
 
 ## `ota plugins`
 
@@ -129,7 +84,7 @@ EXAMPLES
   $ ota plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.12/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/index.ts)_
 
 ## `ota plugins:inspect PLUGIN...`
 
@@ -152,6 +107,8 @@ DESCRIPTION
 EXAMPLES
   $ ota plugins:inspect myplugin
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/inspect.ts)_
 
 ## `ota plugins:install PLUGIN...`
 
@@ -181,15 +138,17 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ ota plugins add
+  $ ota plugins:add
 
 EXAMPLES
-  $ ota plugins:install myplugin
+  $ ota plugins:install myplugin 
 
   $ ota plugins:install https://github.com/someuser/someplugin
 
   $ ota plugins:install someuser/someplugin
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/install.ts)_
 
 ## `ota plugins:link PLUGIN`
 
@@ -218,6 +177,8 @@ EXAMPLES
   $ ota plugins:link myplugin
 ```
 
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/link.ts)_
+
 ## `ota plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
@@ -237,17 +198,19 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ ota plugins unlink
-  $ ota plugins remove
+  $ ota plugins:unlink
+  $ ota plugins:remove
 ```
 
-## `ota plugins update`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/uninstall.ts)_
+
+## `ota plugins:update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ ota plugins update [-h] [-v]
+  $ ota plugins:update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -257,19 +220,22 @@ DESCRIPTION
   Update installed plugins.
 ```
 
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.0/src/commands/plugins/update.ts)_
+
 ## `ota upload`
 
 Upload a firmware to a device
 
 ```
 USAGE
-  $ ota upload -f <value> -i <value> [--deviceIp <value>] [--devicePass <value> ] [--dnsServiceName <value>]
-    [--dnsServiceType <value>]
+  $ ota upload -f <value> -i <value> [--debug <value>] [--deviceIp <value>] [--devicePass <value>]
+    [--dnsServiceName <value>] [--dnsServiceType <value>]
 
 FLAGS
   -f, --file=path/to/firmware.bin  (required) Path to the firmware binary file
-  -i, --interface=<value>          (required) Provide IP of your default local network interface
-  --deviceIp=path/to/firmware.bin  Skip the scanning step by providing the device IP address directly
+  -i, --interfaceIp=<value>        (required) Provide IP of your default local network interface
+  --debug=<value>
+  --deviceIp=path/to/firmware.bin  (WIP) Skip the scanning step by providing the device IP address directly
   --devicePass=<value>             Skip the authentication step by providing the password directly
   --dnsServiceName=<value>         [default: _arduino._tcp.local] Provide the name of the DNS service to lookup
   --dnsServiceType=<value>         [default: PTR] Provide the type of the DNS service to lookup
@@ -279,5 +245,4 @@ DESCRIPTION
 ```
 
 _See code: [dist/commands/upload/index.ts](https://github.com/d-corler/ota-cli/blob/v0.1.0-pre/dist/commands/upload/index.ts)_
-
 <!-- commandsstop -->
