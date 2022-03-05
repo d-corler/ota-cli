@@ -38,20 +38,20 @@
     "zod": "^3.13.4"
   },
   "devDependencies": {
-    "@oclif/test": "^2.1.0",
-    "@types/chai": "^4.3.0",
-    "@types/lodash": "^4.14.179",
-    "@types/node": "^16.11.26",
+    "@oclif/test": "2.1.0",
+    "@types/chai": "4.3.0",
+    "@types/lodash": "4.14.179",
+    "@types/node": "16.11.26",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.10.0",
-    "eslint-config-oclif": "^4.0.0",
-    "eslint-config-oclif-typescript": "^1.0.2",
+    "eslint-config-oclif": "4.0.0",
+    "eslint-config-oclif-typescript": "1.0.2",
     "globby": "^11.1.0",
-    "oclif": "^2.5.0",
-    "shx": "^0.3.4",
-    "ts-node": "^10.6.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.6.2"
+    "oclif": "2.5.0",
+    "shx": "0.3.4",
+    "ts-node": "10.6.0",
+    "tslib": "2.3.1",
+    "typescript": "4.6.2"
   },
   "oclif": {
     "bin": "ota",
