@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@abraham/reflection": "^0.9.1",
+    "@abraham/reflection": "^0.10.0",
     "@oclif/core": "^1.5.2",
     "@oclif/parser": "^3.8.7",
     "@oclif/plugin-help": "^5.1.11",

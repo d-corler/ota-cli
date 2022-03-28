@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@abraham/reflection': ^0.9.1
+  '@abraham/reflection': ^0.10.0
   '@oclif/core': ^1.5.2
   '@oclif/parser': ^3.8.7
   '@oclif/plugin-help': ^5.1.11
@@ -36,7 +36,7 @@ specifiers:
   zod: ^3.13.4
 
 dependencies:
-  '@abraham/reflection': 0.9.1
+  '@abraham/reflection': 0.10.0
   '@oclif/core': 1.5.2
   '@oclif/parser': 3.8.7
   '@oclif/plugin-help': 5.1.11
@@ -74,8 +74,8 @@ devDependencies:
 
 packages:
 
-  /@abraham/reflection/0.9.1:
-    resolution: {integrity: sha512-uUfxTjKTkPs9IDJkKvpUBunZPIwaCCBZ/x8VS6eVpzCLQyyu9gk5cYW+2jpRptjaHd0ZRiKXO9FpA9rKguE4nw==}
+  /@abraham/reflection/0.10.0:
+    resolution: {integrity: sha512-ltEjxbZn3B5CzPhUND30YJiondgOTH3m52edgshMxcuHTEjO2lRyL+EoO7H11yYzt1FIS5CfnMcACSP52WKrLA==}
     dev: false
 
   /@ampproject/remapping/2.1.2:
