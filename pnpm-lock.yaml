@@ -10,7 +10,7 @@ specifiers:
   '@types/chai': 4.3.0
   '@types/debug': ^4.1.7
   '@types/inquirer': ^8.2.0
-  '@types/lodash': 4.14.180
+  '@types/lodash': 4.14.181
   '@types/multicast-dns': ^7.2.1
   '@types/node': 16.11.26
   '@types/validator': ^13.7.1
@@ -59,7 +59,7 @@ dependencies:
 devDependencies:
   '@oclif/test': 2.1.0
   '@types/chai': 4.3.0
-  '@types/lodash': 4.14.180
+  '@types/lodash': 4.14.181
   '@types/node': 16.11.26
   cz-conventional-changelog: 3.3.0
   eslint: 8.12.0
@@ -916,8 +916,8 @@ packages:
     resolution: {integrity: sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==}
     dev: true
 
-  /@types/lodash/4.14.180:
-    resolution: {integrity: sha512-XOKXa1KIxtNXgASAnwj7cnttJxS4fksBRywK/9LzRV5YxrF80BXZIGeQSuoESQ/VkUj30Ae0+YcuHc15wJCB2g==}
+  /@types/lodash/4.14.181:
+    resolution: {integrity: sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag==}
     dev: true
 
   /@types/minimatch/3.0.5:
@@ -2343,7 +2343,7 @@ packages:
     engines: {node: '>=12.0.0'}
     dependencies:
       '@types/chai': 4.3.0
-      '@types/lodash': 4.14.180
+      '@types/lodash': 4.14.181
       '@types/node': 16.11.26
       '@types/sinon': 10.0.11
       lodash: 4.17.21
