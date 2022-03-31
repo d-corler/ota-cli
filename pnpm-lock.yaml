@@ -24,7 +24,7 @@ specifiers:
   inquirer: ^8.2.0
   lodash: ^4.17.21
   multicast-dns: ^7.2.4
-  oclif: 2.6.1
+  oclif: 2.6.3
   ora: ^6.1.0
   rxjs: ^7.5.4
   shx: 0.3.4
@@ -66,7 +66,7 @@ devDependencies:
   eslint-config-oclif: 4.0.0_eslint@8.12.0
   eslint-config-oclif-typescript: 1.0.2_eslint@8.12.0+typescript@4.6.3
   globby: 11.1.0
-  oclif: 2.6.1
+  oclif: 2.6.3
   shx: 0.3.4
   ts-node: 10.7.0_ddaac8e123aeb260f586984cee874848
   tslib: 2.3.1
@@ -617,8 +617,8 @@ packages:
       widest-line: 3.1.0
       wrap-ansi: 7.0.0
 
-  /@oclif/core/1.6.3:
-    resolution: {integrity: sha512-a3DrPNlOYemwnzxuJ3tINjqpMVIYe56Mg+XaQo0nGsqGSk69wF5Q/hD8plsWrtwdkeIxwxhgl7T699EJypAUwg==}
+  /@oclif/core/1.6.4:
+    resolution: {integrity: sha512-eUnh03MWxs3PHQUdZbo43ceLqmeOgGegsfimeqd6xfhcKwSv8dqarRyAoMCjg7P6Qm5qCjaNFZ6eS4ao349xvQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@oclif/linewrap': 1.0.0
@@ -687,7 +687,7 @@ packages:
     engines: {node: '>=12.0.0'}
     dependencies:
       '@oclif/color': 1.0.1
-      '@oclif/core': 1.6.3
+      '@oclif/core': 1.6.4
       fast-levenshtein: 3.0.0
       lodash: 4.17.21
     dev: true
@@ -715,7 +715,7 @@ packages:
     resolution: {integrity: sha512-9dprC1CWPjesg0Vf/rDSQH2tzJXhP1ow84cb2My1kj6e6ESulPKpctiCFSZ1WaCQFfq+crKhzlNoP/vRaXNUAg==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      '@oclif/core': 1.6.3
+      '@oclif/core': 1.6.4
       chalk: 4.1.2
       debug: 4.3.3
       fs-extra: 9.1.0
@@ -3751,12 +3751,12 @@ packages:
     resolution: {integrity: sha512-EFVjAYfzWqWsBMRHPMAXLCDIJnpMhdWAqR7xG6M6a2cs6PMFpl/+Z20w9zDW4vkxOFfddegBKq9Rehd0bxWE7A==}
     engines: {node: '>= 10'}
 
-  /oclif/2.6.1:
-    resolution: {integrity: sha512-6yWPtMSi7SIqgSRaLTcaI3P6Q7cDprETw/K85MIeFw6GZXaf+Fva/J2YdTXPgnEPqZ450AYHyulwdPISqiDCnA==}
+  /oclif/2.6.3:
+    resolution: {integrity: sha512-t3w1GnDrZ9GnlO2WxdTRIlb5EmfLo7fkcpKo95q+03HoL4GVUNneraVymyUTYEBsvMyWcX8PbVkcMai/HhBydA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
-      '@oclif/core': 1.6.3
+      '@oclif/core': 1.6.4
       '@oclif/plugin-help': 5.1.11
       '@oclif/plugin-not-found': 2.3.1
       '@oclif/plugin-warn-if-update-available': 2.0.4
