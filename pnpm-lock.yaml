@@ -7,7 +7,7 @@ specifiers:
   '@oclif/plugin-help': ^5.1.11
   '@oclif/plugin-plugins': ^2.1.0
   '@oclif/test': 2.1.0
-  '@types/chai': 4.3.0
+  '@types/chai': 4.3.1
   '@types/debug': ^4.1.7
   '@types/inquirer': ^8.2.0
   '@types/lodash': 4.14.181
@@ -58,7 +58,7 @@ dependencies:
 
 devDependencies:
   '@oclif/test': 2.1.0
-  '@types/chai': 4.3.0
+  '@types/chai': 4.3.1
   '@types/lodash': 4.14.181
   '@types/node': 16.11.26
   cz-conventional-changelog: 3.3.0
@@ -878,8 +878,8 @@ packages:
     resolution: {integrity: sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==}
     dev: true
 
-  /@types/chai/4.3.0:
-    resolution: {integrity: sha512-/ceqdqeRraGolFTcfoXNiqjyQhZzbINDngeoAq9GoHa8PPK1yNzTaxWjA6BFWp5Ua9JpXEMSS4s5i9tS0hOJtw==}
+  /@types/chai/4.3.1:
+    resolution: {integrity: sha512-/zPMqDkzSZ8t3VtxOa4KPq7uzzW978M9Tvh+j7GHKuo6k6GTLxPJ4J5gE5cjfJ26pnXst0N5Hax8Sr0T2Mi9zQ==}
     dev: true
 
   /@types/debug/4.1.7:
@@ -2342,7 +2342,7 @@ packages:
     resolution: {integrity: sha512-SFb2D/VX9SV+wNYXO1IIh1wyxUC1GS0mYCFJOWD1ia7MPj9yE2G8jaPkw4t/pg0Sj7/YJP56OzMY4nAuJSOugQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      '@types/chai': 4.3.0
+      '@types/chai': 4.3.1
       '@types/lodash': 4.14.181
       '@types/node': 16.11.26
       '@types/sinon': 10.0.11
