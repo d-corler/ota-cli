@@ -29,7 +29,7 @@ specifiers:
   rxjs: ^7.5.4
   shx: 0.3.4
   ts-node: 10.7.0
-  tslib: 2.3.1
+  tslib: 2.4.0
   tsyringe: ^4.6.0
   typescript: 4.6.3
   validator: ^13.7.0
@@ -69,7 +69,7 @@ devDependencies:
   oclif: 2.6.3
   shx: 0.3.4
   ts-node: 10.7.0_ddaac8e123aeb260f586984cee874848
-  tslib: 2.3.1
+  tslib: 2.4.0
   typescript: 4.6.3
 
 packages:
@@ -581,7 +581,7 @@ packages:
       chalk: 4.1.2
       strip-ansi: 6.0.1
       supports-color: 8.1.1
-      tslib: 2.3.1
+      tslib: 2.4.0
 
   /@oclif/core/1.5.2:
     resolution: {integrity: sha512-K2PtU9KyZuBhmpNxFN7vG2AbQtc4ndxDTuu+pa4iK3NtTUPiXReItVj9PKqKIOGMTN+KqiEMknSl1JGa1Fab2g==}
@@ -613,7 +613,7 @@ packages:
       strip-ansi: 6.0.1
       supports-color: 8.1.1
       supports-hyperlinks: 2.2.0
-      tslib: 2.3.1
+      tslib: 2.4.0
       widest-line: 3.1.0
       wrap-ansi: 7.0.0
 
@@ -647,7 +647,7 @@ packages:
       strip-ansi: 6.0.1
       supports-color: 8.1.1
       supports-hyperlinks: 2.2.0
-      tslib: 2.3.1
+      tslib: 2.4.0
       widest-line: 3.1.0
       wrap-ansi: 7.0.0
     dev: true
@@ -673,7 +673,7 @@ packages:
       '@oclif/errors': 1.3.5
       '@oclif/linewrap': 1.0.0
       chalk: 4.1.2
-      tslib: 2.3.1
+      tslib: 2.4.0
     dev: false
 
   /@oclif/plugin-help/5.1.11:
@@ -705,7 +705,7 @@ packages:
       load-json-file: 5.3.0
       npm-run-path: 4.0.1
       semver: 7.3.5
-      tslib: 2.3.1
+      tslib: 2.4.0
       yarn: 1.22.17
     transitivePeerDependencies:
       - supports-color
@@ -1554,7 +1554,7 @@ packages:
       strip-ansi: 6.0.1
       supports-color: 8.1.1
       supports-hyperlinks: 2.2.0
-      tslib: 2.3.1
+      tslib: 2.4.0
     dev: false
 
   /cli-width/2.2.1:
@@ -3770,7 +3770,7 @@ packages:
       normalize-package-data: 3.0.3
       qqjs: 0.3.11
       semver: 7.3.5
-      tslib: 2.3.1
+      tslib: 2.4.0
       yeoman-environment: 3.9.1
       yeoman-generator: 5.6.1_yeoman-environment@3.9.1
       yosay: 2.0.2
@@ -4344,7 +4344,7 @@ packages:
   /rxjs/7.5.4:
     resolution: {integrity: sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.0
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
@@ -4803,8 +4803,8 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
-  /tslib/2.3.1:
-    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
 
   /tsutils/3.21.0_typescript@4.6.3:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
