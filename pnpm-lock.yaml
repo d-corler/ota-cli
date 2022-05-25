@@ -24,7 +24,7 @@ specifiers:
   inquirer: ^8.2.0
   lodash: ^4.17.21
   multicast-dns: ^7.2.4
-  oclif: 2.6.3
+  oclif: 3.0.1
   ora: ^6.1.0
   rxjs: ^7.5.4
   shx: 0.3.4
@@ -66,7 +66,7 @@ devDependencies:
   eslint-config-oclif: 4.0.0_eslint@8.12.0
   eslint-config-oclif-typescript: 1.0.2_eslint@8.12.0+typescript@4.6.3
   globby: 11.1.0
-  oclif: 2.6.3
+  oclif: 3.0.1
   shx: 0.3.4
   ts-node: 10.7.0_ddaac8e123aeb260f586984cee874848
   tslib: 2.3.1
@@ -681,6 +681,14 @@ packages:
     engines: {node: '>=12.0.0'}
     dependencies:
       '@oclif/core': 1.5.2
+    dev: false
+
+  /@oclif/plugin-help/5.1.12:
+    resolution: {integrity: sha512-HvH/RubJxqCinP0vUWQLTOboT+SfjfL8h40s+PymkWaldIcXlpoRaJX50vz+SjZIs7uewZwEk8fzLqpF/BWXlg==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      '@oclif/core': 1.6.4
+    dev: true
 
   /@oclif/plugin-not-found/2.3.1:
     resolution: {integrity: sha512-AeNBw+zSkRpePmpXO8xlL072VF2/R2yK3qsVs/JF26Yw1w77TWuRTdFR+hFotJtFCJ4QYqhNtKSjdryCO9AXsA==}
@@ -3282,6 +3290,7 @@ packages:
   /lru-cache/7.4.1:
     resolution: {integrity: sha512-NCD7/WRlFmADccuHjsRUYqdluYBr//n/O0fesCb/n52FoGcgKh8o4Dpm7YIbZwVcDs8rPBQbCZLmWWsp6m+xGQ==}
     engines: {node: '>=12'}
+    deprecated: Please update to latest patch version to fix memory leak https://github.com/isaacs/node-lru-cache/issues/227
     dev: true
 
   /make-dir/3.1.0:
@@ -3751,13 +3760,13 @@ packages:
     resolution: {integrity: sha512-EFVjAYfzWqWsBMRHPMAXLCDIJnpMhdWAqR7xG6M6a2cs6PMFpl/+Z20w9zDW4vkxOFfddegBKq9Rehd0bxWE7A==}
     engines: {node: '>= 10'}
 
-  /oclif/2.6.3:
-    resolution: {integrity: sha512-t3w1GnDrZ9GnlO2WxdTRIlb5EmfLo7fkcpKo95q+03HoL4GVUNneraVymyUTYEBsvMyWcX8PbVkcMai/HhBydA==}
+  /oclif/3.0.1:
+    resolution: {integrity: sha512-DZZ53DFbDBai6doGTyVCkYWYBj9u+pXStZf8LMV5ttyr9vY9YL/d8kFpYk5OrUz8PuU81JU2Jo3ZV+4QzZFfug==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
       '@oclif/core': 1.6.4
-      '@oclif/plugin-help': 5.1.11
+      '@oclif/plugin-help': 5.1.12
       '@oclif/plugin-not-found': 2.3.1
       '@oclif/plugin-warn-if-update-available': 2.0.4
       aws-sdk: 2.1087.0
