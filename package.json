@@ -23,7 +23,7 @@
     "@oclif/plugin-help": "^5.1.11",
     "@oclif/plugin-plugins": "^2.1.0",
     "@types/debug": "^4.1.7",
-    "@types/inquirer": "^8.2.0",
+    "@types/inquirer": "^9.0.0",
     "@types/multicast-dns": "^7.2.1",
     "@types/validator": "^13.7.1",
     "cli-ux": "^6.0.9",
